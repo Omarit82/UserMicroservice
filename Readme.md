@@ -4,9 +4,9 @@
 
 **Architecture**
 
-Node.js
-Express
-MongoDB + Mongoose
-JWT -> for authentication
-Bcrypt -> password hash
-Dotenv -> enviroment varibles
+- Node.js
+- Express
+- MongoDB + Mongoose
+- JWT -> for authentication
+- Bcrypt -> password hash
+- Dotenv -> enviroment varibles
