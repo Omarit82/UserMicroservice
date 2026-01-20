@@ -1,0 +1,18 @@
+{
+  "name": "usermicroservice",
+  "version": "1.0.0",
+  "description": "Microservice para la autenticacion de usuarios",
+  "license": "ISC",
+  "author": "Omar Roselli",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "node --watch src/server.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "mongodb": "^7.0.0",
+    "mongoose": "^9.1.5"
+  }
+}
