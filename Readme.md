@@ -1,7 +1,9 @@
-*** USER MICROSERVICE ***
-User authentication service
+# USER MICROSERVICE
 
-###Architecture###
+**User authentication service**
+
+**Architecture**
+
 Node.js
 Express
 MongoDB + Mongoose
