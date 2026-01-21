@@ -1,5 +1,5 @@
 import express from 'express';
-import userRouter from './routes/user.routes.js';
+import userRouter from './routes/auth.routes.js';
 import cors from 'cors';
 
 
@@ -8,6 +8,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/api', userRouter);
+app.use('/auth', userRouter);
 
 export default app;

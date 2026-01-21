@@ -1,5 +1,5 @@
 import app from "./src/app.js";
-import { connection } from "./src/config/connectionMiddleware.js";
+import { connection } from "./src/config/connectionDB.js";
 import dotenv from "dotenv";
 
 dotenv.config();
