@@ -8,11 +8,26 @@ export const login = async (req, res) => {
     const user = await userModel.findOne({ email });
     if (!user) return res.status(400).json({ Message: "Invalid credentials" });
 
-    const match = await bcrypt.compare(password, user.password);
+    const match = bcrypt.compare(password, user.password);
     if (!match) return res.status(400).json({ Message: "Invalid credentials" });
 
     const token = generateToken(user);
     res.status(200).json({ Payload: token });
+}
+
+export const loginGoogle = async (req, res) => {
+    try {
+        req.session.user = {
+            email: req.user.email,
+            nombre: req.user.nombre,
+            apellido: req.user.apellido,
+            avatar: req.user.avatar,
+            rol: req.user.user
+        }
+        res.redirect('/');
+    } catch (error) {
+        res.status(500).json({ Message: "Server connection error" });
+    }
 }
 
 export const register = async (req, res) => {
@@ -27,4 +42,8 @@ export const register = async (req, res) => {
     const user = await userModel.create({ email, password: hash });
 
     res.status(201).json({ Message: "User created", Payload: user });
+}
+
+export const isLogged = (req, res, next) => {
+    req.user ? next() : res.status(401).json({ Message: "Unauthorized" });
 }
