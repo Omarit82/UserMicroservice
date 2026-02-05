@@ -31,7 +31,7 @@ export const loginGoogle = async (req, res) => {
 }
 
 export const register = async (req, res) => {
-    const { email, password } = req.body;
+    const { email, password, name, lastName } = req.body;
     const exists = await userModel.findOne({ email });
 
     if (exists) return res.status(400).json({ Message: "User already registered" });
@@ -39,7 +39,7 @@ export const register = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(password, salt);
 
-    const user = await userModel.create({ email, password: hash });
+    const user = await userModel.create({ name, lastName, email, password: hash });
 
     res.status(201).json({ Message: "User created", Payload: user });
 }

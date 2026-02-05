@@ -7,6 +7,6 @@ const userRouter = Router();
 userRouter.post('/login', login);
 userRouter.post('/register', register);
 userRouter.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }))
-userRouter.get('/google/callback', passport.authenticate('google', { failureRedirect: '/session/login' }), loginGoogle)
+userRouter.get('/google/callback', passport.authenticate('google', { failureRedirect: '/auth/login' }), loginGoogle)
 
 export default userRouter;
