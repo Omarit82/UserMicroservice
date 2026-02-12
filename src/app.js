@@ -9,6 +9,7 @@ import session from 'express-session';
 const app = express();
 
 app.use(session({ secret: `${process.env.SESSION_SECRET}`, resave: false, saveUninitialized: true }));
+app.enable('trust proxy');
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(cors());
